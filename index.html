@@ -572,5 +572,29 @@
       </div>
     </footer>
 
+    <script>
+    function toggleDetails(section) {
+      var proHeader = document.querySelector('.pro-details-cell');
+      var valHeader = document.querySelector('.val-details-cell');
+      var testHeader = document.querySelector('.test-details-cell');
+
+      // Hide all details first
+      document.querySelectorAll('.pro-details, .val-details').forEach(cell => cell.classList.add('hidden'));
+      proHeader.setAttribute('colspan', '1');
+      valHeader.setAttribute('colspan', '1');
+
+      if (section === 'pro') {
+        document.querySelectorAll('.pro-details').forEach(cell => cell.classList.remove('hidden'));
+        proHeader.setAttribute('colspan', '10');
+      } else if (section === 'val') {
+        document.querySelectorAll('.val-details').forEach(cell => cell.classList.remove('hidden'));
+        valHeader.setAttribute('colspan', '10');
+      }
+      // RR never expands, always colspan 1
+
+      setTimeout(adjustNameColumnWidth, 0);
+    }
+    </script>
+
   </body>
 </html>
