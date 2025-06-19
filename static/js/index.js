@@ -37,53 +37,66 @@ function loadTableData() {
           const valScores = prepareScoresForStyling(data.leaderboardData, 'as');
           const testScores = prepareScoresForStyling(data.leaderboardData, 'rr');
 
+          console.log('Pro scores:', proScores);
+          console.log('Val scores:', valScores);
+          console.log('Test scores:', testScores);
+
           data.leaderboardData.forEach((row, index) => {
-            const tr = document.createElement('tr');
-            tr.classList.add(row.info.type);
-            const nameCell = row.info.link && row.info.link.trim() !== '' ?
-              `<a href="${row.info.link}" target="_blank"><b>${row.info.name}</b></a>` :
-              `<b>${row.info.name}</b>`;
-            const safeGet = (obj, path, defaultValue = '-') => {
-              return path.split('.').reduce((acc, part) => acc && acc[part], obj) || defaultValue;
-            };
+            try {
+              const tr = document.createElement('tr');
+              tr.classList.add(row.info.type);
+              const nameCell = row.info.link && row.info.link.trim() !== '' ?
+                `<a href="${row.info.link}" target="_blank"><b>${row.info.name}</b></a>` :
+                `<b>${row.info.name}</b>`;
+              const safeGet = (obj, path, defaultValue = '-') => {
+                return path.split('.').reduce((acc, part) => acc && acc[part], obj) || defaultValue;
+              };
 
-            // Helper function to format the overall value
-            const formatOverallValue = (value, source) => {
-              // Adjust space in front of asterisk to align values
-              const adjustedValue = source === 'author' ? `&nbsp;${value || '-'}*` : `${value || '-'}`;
-              return adjustedValue;
-            };
+              // Helper function to format the overall value
+              const formatOverallValue = (value, source) => {
+                // Adjust space in front of asterisk to align values
+                const adjustedValue = source === 'author' ? `&nbsp;${value || '-'}*` : `${value || '-'}`;
+                return adjustedValue;
+              };
 
-            const proOverall = formatOverallValue(applyStyle(safeGet(row, 'apr.overall'), proScores.overall[index]), safeGet(row, 'apr.source'));
-            const valOverall = formatOverallValue(applyStyle(safeGet(row, 'as.overall'), valScores.overall[index]), safeGet(row, 'as.source'));
-            const testOverall = formatOverallValue(applyStyle(safeGet(row, 'rr.overall'), testScores.overall[index]), safeGet(row, 'rr.source'));
+              // Safe array access with bounds checking
+              const safeGetScore = (scores, field, index) => {
+                return scores && scores[field] && scores[field][index] !== undefined ? scores[field][index] : -1;
+              };
 
-            tr.innerHTML = `
-              <td>${nameCell}</td>
-              <td>${row.info.date}</td>
-              <td class="pro-overall">${proOverall}</td>
-              <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.aicd'), proScores.aicd[index])}</td>
-              <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.arch'), proScores.arch[index])}</td>
-              <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.ctrl'), proScores.ctrl[index])}</td>
-              <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.dhd'), proScores.dhd[index])}</td>
-              <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.mech'), proScores.mech[index])}</td>
-              <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.os'), proScores.os[index])}</td>
-              <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.robo'), proScores.robo[index])}</td>
-              <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.sigp'), proScores.sigp[index])}</td>
-              <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.stru'), proScores.stru[index])}</td>
-              <td class="val-overall">${valOverall}</td>
-              <td class="hidden val-details">${applyStyle(safeGet(row, 'as.aicd'), valScores.aicd[index])}</td>
-              <td class="hidden val-details">${applyStyle(safeGet(row, 'as.arch'), valScores.arch[index])}</td>
-              <td class="hidden val-details">${applyStyle(safeGet(row, 'as.ctrl'), valScores.ctrl[index])}</td>
-              <td class="hidden val-details">${applyStyle(safeGet(row, 'as.dhd'), valScores.dhd[index])}</td>
-              <td class="hidden val-details">${applyStyle(safeGet(row, 'as.mech'), valScores.mech[index])}</td>
-              <td class="hidden val-details">${applyStyle(safeGet(row, 'as.os'), valScores.os[index])}</td>
-              <td class="hidden val-details">${applyStyle(safeGet(row, 'as.robo'), valScores.robo[index])}</td>
-              <td class="hidden val-details">${applyStyle(safeGet(row, 'as.sigp'), valScores.sigp[index])}</td>
-              <td class="hidden val-details">${applyStyle(safeGet(row, 'as.stru'), valScores.stru[index])}</td>
-              <td class="test-overall">${testOverall}</td>
-            `;
-            tbody.appendChild(tr);
+              const proOverall = formatOverallValue(applyStyle(safeGet(row, 'apr.overall'), safeGetScore(proScores, 'overall', index)), safeGet(row, 'apr.source'));
+              const valOverall = formatOverallValue(applyStyle(safeGet(row, 'as.overall'), safeGetScore(valScores, 'overall', index)), safeGet(row, 'as.source'));
+              const testOverall = formatOverallValue(applyStyle(safeGet(row, 'rr.overall'), safeGetScore(testScores, 'overall', index)), safeGet(row, 'rr.source'));
+
+              tr.innerHTML = `
+                <td>${nameCell}</td>
+                <td>${row.info.date}</td>
+                <td class="pro-overall">${proOverall}</td>
+                <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.aicd'), safeGetScore(proScores, 'aicd', index))}</td>
+                <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.arch'), safeGetScore(proScores, 'arch', index))}</td>
+                <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.ctrl'), safeGetScore(proScores, 'ctrl', index))}</td>
+                <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.dhd'), safeGetScore(proScores, 'dhd', index))}</td>
+                <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.mech'), safeGetScore(proScores, 'mech', index))}</td>
+                <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.os'), safeGetScore(proScores, 'os', index))}</td>
+                <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.robo'), safeGetScore(proScores, 'robo', index))}</td>
+                <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.sigp'), safeGetScore(proScores, 'sigp', index))}</td>
+                <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.stru'), safeGetScore(proScores, 'stru', index))}</td>
+                <td class="val-overall">${valOverall}</td>
+                <td class="hidden val-details">${applyStyle(safeGet(row, 'as.aicd'), safeGetScore(valScores, 'aicd', index))}</td>
+                <td class="hidden val-details">${applyStyle(safeGet(row, 'as.arch'), safeGetScore(valScores, 'arch', index))}</td>
+                <td class="hidden val-details">${applyStyle(safeGet(row, 'as.ctrl'), safeGetScore(valScores, 'ctrl', index))}</td>
+                <td class="hidden val-details">${applyStyle(safeGet(row, 'as.dhd'), safeGetScore(valScores, 'dhd', index))}</td>
+                <td class="hidden val-details">${applyStyle(safeGet(row, 'as.mech'), safeGetScore(valScores, 'mech', index))}</td>
+                <td class="hidden val-details">${applyStyle(safeGet(row, 'as.os'), safeGetScore(valScores, 'os', index))}</td>
+                <td class="hidden val-details">${applyStyle(safeGet(row, 'as.robo'), safeGetScore(valScores, 'robo', index))}</td>
+                <td class="hidden val-details">${applyStyle(safeGet(row, 'as.sigp'), safeGetScore(valScores, 'sigp', index))}</td>
+                <td class="hidden val-details">${applyStyle(safeGet(row, 'as.stru'), safeGetScore(valScores, 'stru', index))}</td>
+                <td class="test-overall">${testOverall}</td>
+              `;
+              tbody.appendChild(tr);
+            } catch (error) {
+              console.error('Error processing row:', error, row);
+            }
           });
           setTimeout(adjustNameColumnWidth, 0);
           initializeSorting();
