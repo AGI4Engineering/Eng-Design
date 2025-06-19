@@ -253,8 +253,7 @@ function adjustNameColumnWidth() {
 function prepareScoresForStyling(data, section) {
   const scores = {};
   const fields = [
-    'overall', 'vision', 'original', 'artDesign', 'business',
-    'science', 'healthMedicine', 'humanSocialSci', 'techEng'
+    'overall', 'aicd', 'arch', 'ctrl', 'dhd', 'mech', 'os', 'robo', 'sigp', 'stru'
   ];
 
   fields.forEach(field => {
