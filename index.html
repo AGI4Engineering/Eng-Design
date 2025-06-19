@@ -490,8 +490,7 @@ ENGDESIGN is 778.71 tokens, substantially higher than typical QA benchmarks2
         <div class="columns is-centered m-6">
         <div class="column is-full has-text-centered content">
           <h2 class="title is-3">Iterative Design</h2>
-          <div class="content has-text-centered">
-            <div class="content has-text-centered">
+          <div class="content has-text-justified">
               <p>To emulate the workflow of human engineers, we implement an iterative design protocol that allows
   LLMs to refine their solutions based on feedback from previous attempts. In our implementation,
   the LLM is provided with its previous design output along with corresponding evaluation results,
@@ -500,7 +499,6 @@ ENGDESIGN is 778.71 tokens, substantially higher than typical QA benchmarks2
   consistently improves with additional iterations. Notably, o3 achieves almost a 60% pass rate after ten
 iterations. However, we also observed that iterative design does not help in all cases. For example,
   in Analog IC design tasks, models still fail to meet the requirements even after ten iterations.</p>
-            </div>
             <div class="content has-text-centered">
               <img src="static/images/iter_design.png" alt="error distribution" width="45%">
               <p> Average pass rate of GPT-4o, o1, o3, and o4-mini with the iterative design setup.</p>
