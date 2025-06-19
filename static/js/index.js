@@ -33,9 +33,9 @@ function loadTableData() {
           const tbody = document.querySelector('#mmmu-table tbody');
 
           // Prepare data for styling
-          const proScores = prepareScoresForStyling(data.leaderboardData, 'pro');
-          const valScores = prepareScoresForStyling(data.leaderboardData, 'validation');
-          const testScores = prepareScoresForStyling(data.leaderboardData, 'test');
+          const proScores = prepareScoresForStyling(data.leaderboardData, 'apr');
+          const valScores = prepareScoresForStyling(data.leaderboardData, 'as');
+          const testScores = prepareScoresForStyling(data.leaderboardData, 'rr');
 
           data.leaderboardData.forEach((row, index) => {
             const tr = document.createElement('tr');
@@ -54,31 +54,35 @@ function loadTableData() {
               return adjustedValue;
             };
 
-            const proOverall = formatOverallValue(applyStyle(safeGet(row, 'pro.overall'), proScores.overall[index]), safeGet(row, 'pro.source'));
-            const valOverall = formatOverallValue(applyStyle(safeGet(row, 'validation.overall'), valScores.overall[index]), safeGet(row, 'validation.source'));
-            const testOverall = formatOverallValue(applyStyle(safeGet(row, 'test.overall'), testScores.overall[index]), safeGet(row, 'test.source'));
+            const proOverall = formatOverallValue(applyStyle(safeGet(row, 'apr.overall'), proScores.overall[index]), safeGet(row, 'apr.source'));
+            const valOverall = formatOverallValue(applyStyle(safeGet(row, 'as.overall'), valScores.overall[index]), safeGet(row, 'as.source'));
+            const testOverall = formatOverallValue(applyStyle(safeGet(row, 'rr.overall'), testScores.overall[index]), safeGet(row, 'rr.source'));
 
             tr.innerHTML = `
               <td>${nameCell}</td>
               <td>${row.info.size}</td>
               <td>${row.info.date}</td>
               <td class="pro-overall">${proOverall}</td>
-              <td class="hidden pro-details">${applyStyle(safeGet(row, 'pro.vision'), proScores.vision[index])}</td>
-              <td class="hidden pro-details">${applyStyle(safeGet(row, 'pro.original'), proScores.original[index])}</td>
+              <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.aicd'), proScores.aicd[index])}</td>
+              <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.arch'), proScores.arch[index])}</td>
+              <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.ctrl'), proScores.ctrl[index])}</td>
+              <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.dhd'), proScores.dhd[index])}</td>
+              <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.mech'), proScores.mech[index])}</td>
+              <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.os'), proScores.os[index])}</td>
+              <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.robo'), proScores.robo[index])}</td>
+              <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.sigp'), proScores.sigp[index])}</td>
+              <td class="hidden pro-details">${applyStyle(safeGet(row, 'apr.stru'), proScores.stru[index])}</td>
               <td class="val-overall">${valOverall}</td>
-              <td class="hidden val-details">${applyStyle(safeGet(row, 'validation.artDesign'), valScores.artDesign[index])}</td>
-              <td class="hidden val-details">${applyStyle(safeGet(row, 'validation.business'), valScores.business[index])}</td>
-              <td class="hidden val-details">${applyStyle(safeGet(row, 'validation.science'), valScores.science[index])}</td>
-              <td class="hidden val-details">${applyStyle(safeGet(row, 'validation.healthMedicine'), valScores.healthMedicine[index])}</td>
-              <td class="hidden val-details">${applyStyle(safeGet(row, 'validation.humanSocialSci'), valScores.humanSocialSci[index])}</td>
-              <td class="hidden val-details">${applyStyle(safeGet(row, 'validation.techEng'), valScores.techEng[index])}</td>
+              <td class="hidden val-details">${applyStyle(safeGet(row, 'as.aicd'), valScores.aicd[index])}</td>
+              <td class="hidden val-details">${applyStyle(safeGet(row, 'as.arch'), valScores.arch[index])}</td>
+              <td class="hidden val-details">${applyStyle(safeGet(row, 'as.ctrl'), valScores.ctrl[index])}</td>
+              <td class="hidden val-details">${applyStyle(safeGet(row, 'as.dhd'), valScores.dhd[index])}</td>
+              <td class="hidden val-details">${applyStyle(safeGet(row, 'as.mech'), valScores.mech[index])}</td>
+              <td class="hidden val-details">${applyStyle(safeGet(row, 'as.os'), valScores.os[index])}</td>
+              <td class="hidden val-details">${applyStyle(safeGet(row, 'as.robo'), valScores.robo[index])}</td>
+              <td class="hidden val-details">${applyStyle(safeGet(row, 'as.sigp'), valScores.sigp[index])}</td>
+              <td class="hidden val-details">${applyStyle(safeGet(row, 'as.stru'), valScores.stru[index])}</td>
               <td class="test-overall">${testOverall}</td>
-              <td class="hidden test-details">${applyStyle(safeGet(row, 'test.artDesign'), testScores.artDesign[index])}</td>
-              <td class="hidden test-details">${applyStyle(safeGet(row, 'test.business'), testScores.business[index])}</td>
-              <td class="hidden test-details">${applyStyle(safeGet(row, 'test.science'), testScores.science[index])}</td>
-              <td class="hidden test-details">${applyStyle(safeGet(row, 'test.healthMedicine'), testScores.healthMedicine[index])}</td>
-              <td class="hidden test-details">${applyStyle(safeGet(row, 'test.humanSocialSci'), testScores.humanSocialSci[index])}</td>
-              <td class="hidden test-details">${applyStyle(safeGet(row, 'test.techEng'), testScores.techEng[index])}</td>
             `;
             tbody.appendChild(tr);
           });
