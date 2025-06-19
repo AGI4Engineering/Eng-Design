@@ -8,21 +8,21 @@
     },
     {
       "info": {"name": "DeepSeek-v3*", "type": "chat", "date": "2025-03-25"},
-      "apr": {"overall": 17.92, "aicd": 0.00, "arch": 0.00, "ctrl": 27.27, "dhd": 25.64, "mech": 0.00, "os": 0.00, "robo": 16.67, "sigp": 18.82, "stru": 38.89},
-      "as": {"overall": 35.97, "aicd": 17.33, "arch": 0.00, "ctrl": 39.58, "dhd": 39.67, "mech": 24.47, "os": 25.94, "robo": 48.47, "sigp": 34.55, "stru": 36.88},
+      "apr": {"overall": 17.92, "aicd": 0.00, "arch": 0.00, "ctrl": 27.27, "dhd": 25.64, "mech": 0.00, "os": 0.00, "robo": 16.67, "sigp": 12.82, "stru": 38.89},
+      "as": {"overall": 35.97, "aicd": 17.33, "arch": 0.00, "ctrl": 45.58, "dhd": 39.67, "mech": 24.05, "os": 25.94, "robo": 48.47, "sigp": 34.55, "stru": 38.68},
       "rr": {"overall": 0.35}
     },
     {
       "info": {"name": "Gemini-2.0-Flash", "type": "chat", "date": "2025-05-07"},
-      "apr": {"overall": 14.16, "aicd": 0.00, "arch": 0.00, "ctrl": 15.16, "dhd": 6.47, "mech": 0.00, "os": 20.00, "robo": 20.00, "sigp": 5.13, "stru": 36.11},
-      "as": {"overall": 33.59, "aicd": 7.00, "arch": 0.00, "ctrl": 19.05, "dhd": 39.45, "mech": 28.15, "os": 21.74, "robo": 28.15, "sigp": 33.07, "stru": 31.51},
+      "apr": {"overall": 14.16, "aicd": 0.00, "arch": 0.00, "ctrl": 15.15, "dhd": 16.67, "mech": 4.76, "os": 0.00, "robo": 20.00, "sigp": 5.13, "stru": 36.11},
+      "as": {"overall": 33.59, "aicd": 7.00, "arch": 0.00, "ctrl": 39.45, "dhd": 38.25, "mech": 27.14, "os": 28.15, "robo": 53.47, "sigp": 30.03, "stru": 31.51},
       "rr": {"overall": 0.20}
     },
     {
       "info": {"name": "Claude-3.7-Sonnet", "type": "chat", "date": "2025-02-19"},
-      "apr": {"overall": 22.61, "aicd": 0.00, "arch": 40.00, "ctrl": 40.00, "dhd": 33.33, "mech": 14.29, "os": 0.00, "robo": 33.33, "sigp": 21.57, "stru": 30.77},
+      "apr": {"overall": 22.61, "aicd": 0.00, "arch": 40.00, "ctrl": 16.67, "dhd": 33.33, "mech": 14.29, "os": 0.00, "robo": 33.33, "sigp": 21.57, "stru": 30.77},
       "as": {"overall": 41.14, "aicd": 31.00, "arch": 23.79, "ctrl": 43.94, "dhd": 46.03, "mech": 30.24, "os": 29.55, "robo": 58.97, "sigp": 44.90, "stru": 37.11},
-      "rr": {"overall": 0.55}
+      "rr": {"overall": 0.48}
     },
     {
       "info": {"name": "o1", "type": "reasoning", "date": "2024-12-17"},
@@ -33,44 +33,44 @@
     {
       "info": {"name": "o3", "type": "reasoning", "date": "2025-04-16"},
       "apr": {"overall": 34.38, "aicd": 0.00, "arch": 40.00, "ctrl": 35.19, "dhd": 20.51, "mech": 23.81, "os": 25.00, "robo": 63.33, "sigp": 41.18, "stru": 30.77},
-      "as": {"overall": 48.98, "aicd": 20.33, "arch": 35.82, "ctrl": 59.37, "dhd": 28.20, "mech": 40.24, "os": 54.52, "robo": 70.13, "sigp": 57.44, "stru": 44.77},
+      "as": {"overall": 48.98, "aicd": 20.33, "arch": 35.82, "ctrl": 59.37, "dhd": 28.82, "mech": 40.24, "os": 54.52, "robo": 70.13, "sigp": 57.44, "stru": 44.77},
       "rr": {"overall": 0.61}
     },
     {
       "info": {"name": "o3-high", "type": "reasoning", "date": "2025-04-16"},
-      "apr": {"overall": 33.57, "aicd": 0.00, "arch": 40.00, "ctrl": 35.19, "dhd": 20.51, "mech": 28.57, "os": 34.38, "robo": 68.97, "sigp": 39.22, "stru": 30.77},
-      "as": {"overall": 49.46, "aicd": 20.33, "arch": 32.20, "ctrl": 53.19, "dhd": 33.36, "mech": 45.24, "os": 65.59, "robo": 73.67, "sigp": 53.51, "stru": 47.48},
-      "rr": {"overall": 0.57}
+      "apr": {"overall": 33.57, "aicd": 0.00, "arch": 40.00, "ctrl": 27.78, "dhd": 20.51, "mech": 28.57, "os": 30.43, "robo": 68.97, "sigp": 35.29, "stru": 40.03},
+      "as": {"overall": 49.46, "aicd": 20.33, "arch": 32.80, "ctrl": 53.19, "dhd": 33.36, "mech": 45.24, "os": 65.59, "robo": 73.67, "sigp": 53.51, "stru": 47.48},
+      "rr": {"overall": 0.55}
     },
     {
       "info": {"name": "o4-mini", "type": "reasoning", "date": "2025-04-16"},
-      "apr": {"overall": 31.60, "aicd": 0.00, "arch": 33.33, "ctrl": 24.07, "dhd": 20.51, "mech": 28.57, "os": 37.50, "robo": 56.67, "sigp": 33.33, "stru": 30.77},
-      "as": {"overall": 47.30, "aicd": 11.00, "arch": 35.72, "ctrl": 48.07, "dhd": 37.56, "mech": 36.04, "os": 56.90, "robo": 61.38, "sigp": 51.20, "stru": 39.51},
+      "apr": {"overall": 31.60, "aicd": 0.00, "arch": 33.33, "ctrl": 24.07, "dhd": 41.03, "mech": 19.05, "os": 29.17, "robo": 43.33, "sigp": 33.33, "stru": 41.03},
+      "as": {"overall": 47.30, "aicd": 11.00, "arch": 25.72, "ctrl": 48.80, "dhd": 57.36, "mech": 35.00, "os": 56.90, "robo": 61.38, "sigp": 51.28, "stru": 42.07},
       "rr": {"overall": 0.40}
     },
     {
       "info": {"name": "o4-mini-high", "type": "reasoning", "date": "2025-04-16"},
-      "apr": {"overall": 34.04, "aicd": 0.00, "arch": 40.00, "ctrl": 37.04, "dhd": 47.22, "mech": 19.05, "os": 37.50, "robo": 56.67, "sigp": 35.29, "stru": 35.90},
-      "as": {"overall": 49.88, "aicd": 12.67, "arch": 36.97, "ctrl": 54.87, "dhd": 64.28, "mech": 36.43, "os": 63.06, "robo": 56.72, "sigp": 48.45, "stru": 44.15},
-      "rr": {"overall": 0.61}
+      "apr": {"overall": 34.04, "aicd": 0.00, "arch": 40.00, "ctrl": 27.78, "dhd": 47.22, "mech": 19.05, "os": 37.50, "robo": 46.67, "sigp": 35.29, "stru": 35.90},
+      "as": {"overall": 49.88, "aicd": 12.67, "arch": 36.97, "ctrl": 54.87, "dhd": 64.28, "mech": 36.43, "os": 63.96, "robo": 56.72, "sigp": 48.45, "stru": 44.15},
+      "rr": {"overall": 0.57}
     },
     {
       "info": {"name": "Gemini-2.5-Pro", "type": "reasoning", "date": "2025-05-06"},
-      "apr": {"overall": 29.54, "aicd": 0.00, "arch": 0.00, "ctrl": 33.33, "dhd": 20.51, "mech": 23.81, "os": 25.00, "robo": 63.33, "sigp": 35.29, "stru": 50.00},
-      "as": {"overall": 48.25, "aicd": 31.00, "arch": 0.00, "ctrl": 50.00, "dhd": 35.08, "mech": 29.05, "os": 44.05, "robo": 62.43, "sigp": 39.35, "stru": 55.02},
-      "rr": {"overall": 0.48}
+      "apr": {"overall": 29.54, "aicd": 0.00, "arch": 0.00, "ctrl": 33.33, "dhd": 43.59, "mech": 0.00, "os": 9.52, "robo": 56.67, "sigp": 12.82, "stru": 50.00},
+      "as": {"overall": 48.25, "aicd": 31.00, "arch": 0.00, "ctrl": 53.70, "dhd": 58.05, "mech": 29.05, "os": 44.05, "robo": 62.43, "sigp": 39.63, "stru": 55.02},
+      "rr": {"overall": 0.45}
     },
     {
-      "info": {"name": "DeepSeek-R1*", "type": "reasoning", "date": "2025-05-28"},
-      "apr": {"overall": 25.53, "aicd": 0.00, "arch": 0.00, "ctrl": 36.36, "dhd": 36.36, "mech": 14.29, "os": 25.00, "robo": 33.33, "sigp": 17.65, "stru": 41.67},
-      "as": {"overall": 44.71, "aicd": 22.00, "arch": 0.00, "ctrl": 54.38, "dhd": 36.36, "mech": 29.05, "os": 44.05, "robo": 52.94, "sigp": 48.04, "stru": 40.31},
+      "info": {"name": "DeepSeek-R1*", "type": "reasoning", "date": "2025-01-20"},
+      "apr": {"overall": 25.53, "aicd": 0.00, "arch": 36.36, "ctrl": 36.36, "dhd": 38.46, "mech": 4.67, "os": 5.26, "robo": 26.67, "sigp": 20.51, "stru": 41.67},
+      "as": {"overall": 44.71, "aicd": 22.00, "arch": 0.00, "ctrl": 56.27, "dhd": 54.38, "mech": 26.19, "os": 37.26, "robo": 53.82, "sigp": 48.08, "stru": 40.31},
       "rr": {"overall": 0.41}
     },
     {
       "info": {"name": "Claude-3.7-Thinking", "type": "reasoning", "date": "2025-02-19"},
-      "apr": {"overall": 20.07, "aicd": 0.00, "arch": 40.00, "ctrl": 13.58, "dhd": 13.64, "mech": 0.00, "os": 0.00, "robo": 33.33, "sigp": 17.65, "stru": 28.21},
+      "apr": {"overall": 20.07, "aicd": 0.00, "arch": 33.33, "ctrl": 18.52, "dhd": 17.95, "mech": 9.52, "os": 0.00, "robo": 40.00, "sigp": 19.61, "stru": 28.21},
       "as": {"overall": 39.75, "aicd": 22.67, "arch": 26.02, "ctrl": 43.87, "dhd": 29.59, "mech": 37.62, "os": 28.25, "robo": 59.38, "sigp": 45.58, "stru": 40.39},
-      "rr": {"overall": 0.45}
+      "rr": {"overall": 0.44}
     }
   ]
 }
