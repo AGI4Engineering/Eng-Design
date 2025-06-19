@@ -68,7 +68,7 @@
                 <span class="benchmark" style="vertical-align: middle">EngDesign</span>
               </h1>
               <h2 class="subtitle is-3 publication-subtitle">
-                A Comprehensive Benchmark for Engineering Design Tasks Across Nine Domains
+                A Comprehensive Benchmark for Engineering Design Tasks with Simulation-Based Evaluation Pipelines Across Nine Engineering Domains
               </h2>
               <div class="is-size-5 publication-authors">
                 <span class="author-block">
@@ -229,22 +229,6 @@
                     </a>
                   </span>
                   <span class="link-block">
-                    <a href="#" class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon has-text-white">
-                        <i class="fa-solid fa-medal"></i>
-                      </span>
-                      <span>Evaluation</span>
-                    </a>
-                  </span>
-                  <span class="link-block">
-                    <a href="#" class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon has-text-white">
-                        <i class="fa-brands fa-x-twitter"></i>
-                      </span>
-                      <span>Twitter</span>
-                    </a>
-                  </span>
-                  <span class="link-block">
                     <a href="#examples" class="external-link button is-normal is-rounded is-dark">
                       <span class="icon has-text-white">
                         <i class="fa-solid fa-book"></i>
@@ -280,13 +264,7 @@
             <h2 class="title is-3">🔔News</h2>
             <div class="content has-text-justified">
               <p>
-                <b>🔥[DATE]: [NEWS_ITEM_1]</b>
-              </p>
-              <p>
-                <b>🚀[DATE]: [NEWS_ITEM_2]</b>
-              </p>
-              <p>
-                <b>🔥[DATE]: [NEWS_ITEM_3]</b>
+                <b>2025-06: Our website is live! 🎉</b>
               </p>
           </div>
             <h2 class="title is-3">Introduction</h2>
@@ -380,54 +358,67 @@
             <h2 class="title is-3" id="leaderboard">Leaderboard</h2>
             <div class="content has-text-justified">
               <p>
-                TBD
+              We evaluate sevearl froninter models on EngDesign including both generarl-purpose chat models and reasoning models. We report three primary evaluation metrics: (1) Average Pass Rate, (2) Average Score, and (3) Reasoning Robustness. Each task is evaluated over three independent trials per model.
+              <br>
+              <b>Average Pass Rate (APR)</b> measures the percentage of models that correctly solve the task.
+              <br>
+              <b>Average Score</b> measures the average score of the models on the task.
+              <br>
+              <b>Reasoning Robustness</b> measures the robustness of the models to different reasoning tasks.
               </p>
             </div>
             <br>
             <div class="model-labels-container">
-              <span class="leaderboard-label general_purpose">General-Purpose-Model</span>
+              <span class="leaderboard-label general_purpose">General-Purpose-Chat-Model</span>
               <span class="leaderboard-label reasoning">Reasoning-Model</span>
             </div>
             <br>
-            <div class="content has-text-centered">
-              <p>
-                [LEADERBOARD_INSTRUCTIONS]
-              </p>
-            </div>
             <div class="leaderboard-container">
               <div class="content has-text-right is-size-7 has-text-grey">
-                <p>Last updated: 2025-06-17</p>
+                <p>Last updated: 2025-06-18</p>
               </div>
               <div class="table-wrapper">
                 <table id="benchmark-table">
                   <thead>
                     <tr>
-                      <th colspan="3" class="reset-cell clickable" style="text-align: center;">Reset</th>
-                      <th class="pro-details-cell clickable" colspan="1">[METRIC_1]</th>
-                      <th class="val-details-cell clickable" colspan="1">[METRIC_2]</th>
-                      <th class="test-details-cell clickable" colspan="1">[METRIC_3]</th>
+                      <th colspan="3" class="reset-cell clickable" style="text-align: center;">Model</th>
+                      <th class="pro-details-cell clickable" colspan="1">APR</th>
+                      <th class="val-details-cell clickable" colspan="1">AS</th>
+                      <th class="test-details-cell clickable" colspan="1">RR</th>
                     </tr>
                     <tr>
                       <th class="sortable clickable" data-sort="string">Name</th>
-                      <th class="clickable" data-sort="string">Size</th>
                       <th class="sortable clickable" data-sort="date">Date</th>
                       <th class="sortable clickable pro-overall" data-sort="number">Overall</th>
-                      <th class="hidden pro-details sortable clickable" data-sort="number">[CATEGORY_1]</th>
-                      <th class="hidden pro-details sortable clickable" data-sort="number">[CATEGORY_2]</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">AICD</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">Arch</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">Ctrl</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">DHD</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">Mech</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">OS</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">Robo</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">SigP</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">Stru</th>
                       <th class="sortable clickable val-overall" data-sort="number">Overall</th>
-                      <th class="hidden val-details sortable clickable" data-sort="number">[CATEGORY_3]</th>
-                      <th class="hidden val-details sortable clickable" data-sort="number">[CATEGORY_4]</th>
-                      <th class="hidden val-details sortable clickable" data-sort="number">[CATEGORY_5]</th>
-                      <th class="hidden val-details sortable clickable" data-sort="number">[CATEGORY_6]</th>
-                      <th class="hidden val-details sortable clickable" data-sort="number">[CATEGORY_7]</th>
-                      <th class="hidden val-details sortable clickable" data-sort="number">[CATEGORY_8]</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">AICD</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">Arch</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">Ctrl</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">DHD</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">Mech</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">OS</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">Robo</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">SigP</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">Stru</th>
                       <th class="sortable clickable test-overall" data-sort="number">Overall</th>
-                      <th class="hidden test-details sortable clickable" data-sort="number">[CATEGORY_9]</th>
-                      <th class="hidden test-details sortable clickable" data-sort="number">[CATEGORY_10]</th>
-                      <th class="hidden test-details sortable clickable" data-sort="number">[CATEGORY_11]</th>
-                      <th class="hidden test-details sortable clickable" data-sort="number">[CATEGORY_12]</th>
-                      <th class="hidden test-details sortable clickable" data-sort="number">[CATEGORY_13]</th>
-                      <th class="hidden test-details sortable clickable" data-sort="number">[CATEGORY_14]</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">AICD</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">Arch</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">Ctrl</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">DHD</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">Mech</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">OS</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">Robo</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">SigP</th>
+                      <th class="hidden pro-details sortable clickable" data-sort="number">Stru</th>
                     </tr>
                   </thead>
                   <tbody>
