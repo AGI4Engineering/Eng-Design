@@ -486,16 +486,25 @@ ENGDESIGN is 778.71 tokens, substantially higher than typical QA benchmarks2
             </div>
           </div>
         </div>
-      <!-------------------------------------------------------------------- Analysis SECTION -------------------------------------------------------------------->
+      <!-------------------------------------------------------------------- Iterative Design SECTION -------------------------------------------------------------------->
         <div class="columns is-centered m-6">
         <div class="column is-full has-text-centered content">
-          <h2 class="title is-3">[ANALYSIS_TITLE]</h2>
+          <h2 class="title is-3">Iterative Design</h2>
           <div class="content has-text-centered">
             <div class="content has-text-centered">
-              <p>Click legend to switch the comparison chart.</p>
+              <p>To emulate the workflow of human engineers, we implement an iterative design protocol that allows
+  LLMs to refine their solutions based on feedback from previous attempts. In our implementation,
+  the LLM is provided with its previous design output along with corresponding evaluation results,
+  such as scores, performance metrics, and diagnostic logs, and is then prompted to generate an
+  improved design in the subsequent iteration. As shown in the left plot of Figure 6, model performance
+  consistently improves with additional iterations. Notably, o3 achieves almost a 60% pass rate after ten
+iterations. However, we also observed that iterative design does not help in all cases. For example,
+  in Analog IC design tasks, models still fail to meet the requirements even after ten iterations.</p>
             </div>
-            <canvas id="analysis_chart"></canvas>
-            <p>[ANALYSIS_CAPTION]</p>
+            <div class="content has-text-centered">
+              <img src="static/images/iter_design.png" alt="error distribution" width="45%">
+              <p> Average pass rate of GPT-4o, o1, o3, and o4-mini with the iterative design setup.</p>
+            </div>
           </div>
         </div>
         </div>
@@ -511,20 +520,6 @@ ENGDESIGN is 778.71 tokens, substantially higher than typical QA benchmarks2
             <div class="content has-text-centered">
               <img src="static/images/error_analysis.png" alt="error distribution" width="45%">
               <p> Error distribution of 111 annotated error types for o4-mini on EngDesign.</p>
-            </div>
-          </div>
-        </div>
-      <!-------------------------------------------------------------------- Error Example  -------------------------------------------------------------------->
-        <div class="columns is-centered m-6">
-          <div class="column is-full has-text-centered content">
-            <h2 class="title is-3" id="examples">Error Examples</h2>
-            <div class="carousel results-carousel">
-              <div class="box m-5">
-                <div class="content has-text-centered">
-                  <img src="static/images/error/1.png" alt="error example" width="60%"/>
-                </div>
-              </div>
-              <!-- Add more error example boxes as needed -->
             </div>
           </div>
         </div>
