@@ -38,6 +38,30 @@
       #engdesign-table tr.reasoning {
         background-color: #fffbe6;
       }
+
+      .leaderboard-pill {
+        display: inline-block;
+        padding: 0.4em 1.2em;
+        margin-right: 0.5em;
+        margin-bottom: 0.5em;
+        border-radius: 12px;
+        font-weight: 500;
+        font-size: 1em;
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      .leaderboard-pill.chat {
+        background: #eaf6fb;
+        color: #1a3a4a;
+        border: 1px solid #b5d6e6;
+      }
+
+      .leaderboard-pill.reasoning {
+        background: #fffbe6;
+        color: #7a6a00;
+        border: 1px solid #e6dca7;
+      }
     </style>
   </head>
   <body>
@@ -381,8 +405,8 @@
             </div>
             <br>
             <div class="model-labels-container">
-              <span class="leaderboard-label general_purpose">General-Purpose-Chat-Model</span>
-              <span class="leaderboard-label reasoning">Reasoning-Model</span>
+              <span class="leaderboard-pill chat">General-Purpose-Chat-Model</span>
+              <span class="leaderboard-pill reasoning">Reasoning-Model</span>
             </div>
             <br>
             <div class="content has-text-centered">
