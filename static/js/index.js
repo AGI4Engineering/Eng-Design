@@ -49,7 +49,8 @@ function loadTableData() {
                 `<a href="${row.info.link}" target="_blank"><b>${row.info.name}</b></a>` :
                 `<b>${row.info.name}</b>`;
               const safeGet = (obj, path, defaultValue = '-') => {
-                return path.split('.').reduce((acc, part) => acc && acc[part], obj) || defaultValue;
+                const value = path.split('.').reduce((acc, part) => acc && acc[part], obj);
+                return value === undefined || value === null ? defaultValue : value;
               };
 
               // Helper function to format the overall value
