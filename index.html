@@ -330,15 +330,38 @@
             <h2 class="title is-3">Overview</h2>
             <div class="content has-text-justified">
               <p>
-                [OVERVIEW_TEXT]
+                ENGDESIGN, a multi-domain benchmark developed to evaluate the
+ capabilities of LLMs in real-world engineering design tasks. Unlike conventional QA benchmarks,
+ ENGDESIGN adopts a rigorous simulation-based evaluation pipeline to assess model performance in
+ practical, design-oriented scenarios. Table 1 summarizes the benchmark’s key statistics: it comprises
+ 101 design tasks spanning 9 engineering domains, with a total of 473 gradable items. While the task
+ distribution may appear uneven, it naturally reflects the domain expertise of our contributors and
+ the filtering rigor imposed by our multi-stage review process. Notably, the average prompt length in
+ENGDESIGN is 778.71 tokens, substantially higher than typical QA benchmarks2
+ , highlighting the
+ contextual richness and complexity of realistic engineering design problems.
               </p>
-              <img src="static/images/example.png" alt="example" class="center">
+              <img src="static/images/stat_table.png" alt="example" class="center">
               <br>
               <p>
-                [ADDITIONAL_OVERVIEW_TEXT]
+                Among the 101 tasks in ENGDESIGN, 48 tasks require domain-specific scientific software such
+  as MATLAB or Cadence for evaluation, while the remaining 53 tasks are fully open-sourced and
+  evaluated using manually authored evaluation scripts. We consolidate these tasks into a subset
+  called ENGDESIGN-OPEN to support broader community adoption without licensing constraints.
+  Additionally, 23 tasks of ENGDESIGN incorporate images as part of the task input to LLMs.
               </p>
               <p>
-                [MORE_OVERVIEW_TEXT]
+                Each task of ENGDESIGN consists of the following four key components:
+  1. Task Description. This part is the query prompt fed into the LLMs, offering a clear and detailed
+  definition of the engineering design problem, including design objectives, specifications, constraints.
+  2. Evaluation Rubrics. Given the complexity of ENGDESIGN tasks, each task is further decomposed
+  into multiple gradable items evaluated individually during the performance check stage. The evalua124 tion rubrics define the assessment criteria and scoring metrics, with a full score of 100. This enables
+  models to receive partial credit even if the design does not fully meet all specified requirements.
+  3. Evaluation Pipeline. Each task includes automated evaluation scripts that assess the LLMs’
+  designs. The evaluation returns a binary pass/fail indicator, a numerical score, and evaluation logs for
+  further analysis.
+  4. Reference Design. Each task provides a validated reference design that fully satisfies all specified
+  requirements, ensuring the feasibility and realism of the design challenge.
               </p>
             </div>
           </div>
@@ -463,62 +486,6 @@
             </div>
           </div>
         </div>
-        <!-------------------------------------------------------------------- Category Analysis SECTION -------------------------------------------------------------------->
-        <div class="columns is-centered m-6">
-          <div class="column is-full has-text-centered content">
-            <h2 class="title is-3">Different Categories</h2>
-            <div class="content has-text-justified">
-              <p>
-                [CATEGORY_ANALYSIS_TEXT]
-              </p>
-            </div>
-            <div class="model-labels-container">
-              <span class="model-label" style="background-color: rgba(196, 123, 160, 0.5);">[MODEL_1]</span>
-              <span class="model-label" style="background-color: rgba(245, 123, 113, 0.5);">[MODEL_2]</span>
-              <span class="model-label" style="background-color: rgba(255, 208, 80, 0.5);">[MODEL_3]</span>
-              <span class="model-label" style="background-color: rgba(110, 194, 134, 0.5);">[MODEL_4]</span>
-              <span class="model-label" style="background-color: rgba(255, 153, 78, 0.5);">[MODEL_5]</span>
-              <span class="model-label" style="background-color: rgba(42, 149, 235, 0.5);">[MODEL_6]</span>
-              <span class="model-label" style="background-color: rgba(183, 156, 220, 0.5);">[MODEL_7]</span>
-              <span class="model-label" style="background-color: rgba(143, 169, 209, 0.5);">[MODEL_8]</span>
-              <span class="model-label" style="background-color: rgba(72, 199, 176, 0.5);">[MODEL_9]</span>
-              <span class="model-label" style="background-color: rgba(117, 209, 215, 0.5);">[MODEL_10]</span>
-            </div>
-            <div class="content has-text-centered">
-              <div class="chart-grid">
-                <!-- Chart placeholders -->
-                <div class="chart-item">
-                    <canvas id="chart_category1"></canvas>
-                    <p class="chart-label">[CATEGORY_1] ([COUNT_1])</p>
-                </div>
-                <div class="chart-item">
-                    <canvas id="chart_category2"></canvas>
-                    <p class="chart-label">[CATEGORY_2] ([COUNT_2])</p>
-                </div>
-                <!-- Add more chart items as needed -->
-              </div>
-              <p class="bottom-text"> [CHART_CAPTION]</p>
-            </div>
-          </div>
-        </div>
-        <!-------------------------------------------------------------------- Difficulty Levels SECTION -------------------------------------------------------------------->
-        <div class="columns is-centered m-6">
-          <div class="column is-full has-text-centered content">
-            <h2 class="title is-3">Iterative Design</h2>
-            <div class="content has-text-justified">
-              <p>
-                [DIFFICULTY_ANALYSIS_TEXT]
-              </p>
-            </div>
-            <div class="content has-text-centered">
-              <p>Click legend to switch the comparison chart.</p>
-            </div>
-            <div class="content has-text-centered">
-              <canvas id="difficulty_level_chart"></canvas>
-              <p>Result decomposition across question difficulty levels.</p>
-            </div>
-          </div>
-        </div>
       <!-------------------------------------------------------------------- Analysis SECTION -------------------------------------------------------------------->
         <div class="columns is-centered m-6">
         <div class="column is-full has-text-centered content">
@@ -538,12 +505,12 @@
             <h2 class="title is-3">Error Analysis</h2>
             <div class="content has-text-justified">
               <p>
-                [ERROR_ANALYSIS_TEXT]
+                We analyzed o4-mini’s responses to 70 tasks from ENGDESIGN in which the model failed evaluation, and manually annotated each failure with corresponding error types. Given the complexity of engineering design tasks, many responses exhibited multiple failure modes; we therefore allowed multi-label assignments per task. In total, 111 distinct errors were identified. The distribution of these errors is illustrated in Figure. More analysis is included in the Appendix.
               </p>
             </div>
             <div class="content has-text-centered">
-              <img src="static/images/error_distribution.png" alt="error distribution" width="25%">
-              <p> [ERROR_DISTRIBUTION_CAPTION]</p>
+              <img src="static/images/error_analysis.png" alt="error distribution" width="25%">
+              <p> Error distribution of 111 annotated error types for o4-mini on EngDesign.</p>
             </div>
           </div>
         </div>
@@ -561,23 +528,6 @@
             </div>
           </div>
         </div>
-      <!-------------------------------------------------------------------- Correct Example -------------------------------------------------------------------->
-        <div class="columns is-centered m-6">
-          <div class="column is-full has-text-centered content">
-            <h2 class="title is-3">Correct Examples</h2>
-            <div id="results-carousel" class="carousel results-carousel">
-              <div class="box m-5">
-                <div class="content has-text-centered">
-                  <img src="static/images/correct/1.png" alt="correct example" width="60%"/>
-                </div>
-              </div>
-              <!-- Add more correct example boxes as needed -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- @PAN TODO: bibtex -->
     <section class="section" id="BibTeX">
       <div class="container is-max-desktop content">
