@@ -142,7 +142,7 @@ function toggleDetails(section) {
     var headerCell = document.querySelector('.' + sec + '-details-cell');
     if (sec === section) {
       detailCells.forEach(cell => cell.classList.toggle('hidden'));
-      headerCell.setAttribute('colspan', headerCell.getAttribute('colspan') === '1' ? (sec === 'pro' ? '3' : '7') : '1');
+      headerCell.setAttribute('colspan', headerCell.getAttribute('colspan') === '1' ? '10' : '1');
     } else {
       detailCells.forEach(cell => cell.classList.add('hidden'));
       overallCells.forEach(cell => cell.classList.remove('hidden'));
@@ -264,30 +264,41 @@ function adjustNameColumnWidth() {
 }
 
 function prepareScoresForStyling(data, section) {
+  console.log('Preparing scores for section:', section, 'with data:', data);
   const scores = {};
   const fields = [
     'overall', 'aicd', 'arch', 'ctrl', 'dhd', 'mech', 'os', 'robo', 'sigp', 'stru'
   ];
 
   fields.forEach(field => {
-    const values = data.map(row => row[section] && row[section][field])
-                       .filter(value => value !== '-' && value !== undefined && value !== null)
-                       .map(parseFloat);
+    console.log('Processing field:', field);
+    const values = data.map(row => {
+      const value = row[section] && row[section][field];
+      console.log('Row value for', field, ':', value);
+      return value;
+    }).filter(value => value !== '-' && value !== undefined && value !== null)
+      .map(parseFloat);
+
+    console.log('Filtered values for', field, ':', values);
 
     if (values.length > 0) {
       const sortedValues = [...new Set(values)].sort((a, b) => b - a);
+      console.log('Sorted values for', field, ':', sortedValues);
       scores[field] = data.map(row => {
         const value = row[section] && row[section][field];
         if (value === '-' || value === undefined || value === null) {
           return -1;
         }
-        return sortedValues.indexOf(parseFloat(value));
+        const rank = sortedValues.indexOf(parseFloat(value));
+        console.log('Rank for', field, 'value', value, ':', rank);
+        return rank;
       });
     } else {
       scores[field] = data.map(() => -1);
     }
   });
 
+  console.log('Final scores object:', scores);
   return scores;
 }
 
