@@ -305,7 +305,13 @@
             <h2 class="title is-3">Introduction</h2>
             <div class="content has-text-justified">
               <p>
-                Engineering design represents a fundamentally different challenge for AI compared to traditional problem solving. While existing benchmarks focus on factual recall and textbook-style questions, real-world engineering design demands synthesis of domain knowledge, navigation of complex trade-offs, and management of practical design processes. We introduce EngDesign, a benchmark that evaluates AI systems' abilities to perform practical engineering design tasks across nine domains: Operating System Design, Computer Architecture Design, Control System Design, Mechanical Systems, Structural Design, Digital Hardware Design, Analog Integrated Circuit Design, Robotics, and Signal Processing. EngDesign pioneers a simulation-based evaluation paradigm where AI-generated designs undergo rigorous testing through executable, domain-specific simulations—from circuit SPICE simulations to structural finite element analysis. This establishes a new benchmark paradigm that moves beyond textbook knowledge to assess genuine engineering capability through dynamic, simulation-driven functional verification.
+                Engineering design represents a fundamentally different challenge for AI compared to traditional problem solving. While existing benchmarks focus on factual recall and textbook-style questions, real-world engineering design demands <strong>synthesis of domain knowledge</strong>, <strong>navigation of complex trade-offs</strong>, and <strong>management of practical design processes</strong>.
+              </p>
+              <p>
+                We introduce <strong>EngDesign</strong>, a benchmark that evaluates AI systems' abilities to perform practical engineering design tasks across <strong>nine domains</strong>: Operating System Design, Computer Architecture Design, Control System Design, Mechanical Systems, Structural Design, Digital Hardware Design, Analog Integrated Circuit Design, Robotics, and Signal Processing.
+              </p>
+              <p>
+                EngDesign pioneers a <strong>simulation-based evaluation paradigm</strong> where AI-generated designs undergo rigorous testing through executable, domain-specific simulations—from circuit SPICE simulations to structural finite element analysis. This establishes a new benchmark paradigm that moves beyond textbook knowledge to assess genuine engineering capability through dynamic, simulation-driven functional verification.
               </p>
             </div>
           </div>
@@ -332,7 +338,7 @@
               <p>
                 <strong>EngDesign</strong> is a comprehensive multi-domain benchmark that evaluates the capabilities of Large Language Models (LLMs) in real-world engineering design tasks. Unlike conventional question-answering benchmarks, EngDesign employs a rigorous <strong>simulation-based evaluation pipeline</strong> to assess model performance in practical, design-oriented scenarios. The benchmark comprises <strong>101 design tasks</strong> spanning <strong>9 engineering domains</strong>, with a total of <strong>473 gradable items</strong>. With an average prompt length of <strong>778.71 tokens</strong>—substantially higher than typical QA benchmarks—EngDesign captures the contextual richness and complexity of realistic engineering design problems.
               </p>
-              <img src="static/images/stat_table.png" alt="example" class="center">
+              <img src="static/images/stat_table.png" alt="example" class="center" width="70%">
               <br>
               <p>
                 Key features of the EngDesign benchmark:
@@ -477,17 +483,15 @@
         <div class="column is-full has-text-centered content">
           <h2 class="title is-3">Iterative Design</h2>
           <div class="content has-text-justified">
-              <p>To emulate the workflow of human engineers, we implement an iterative design protocol that allows
-  LLMs to refine their solutions based on feedback from previous attempts. In our implementation,
-  the LLM is provided with its previous design output along with corresponding evaluation results,
-  such as scores, performance metrics, and diagnostic logs, and is then prompted to generate an
-  improved design in the subsequent iteration. As shown in the left plot of Figure 6, model performance
-  consistently improves with additional iterations. Notably, o3 achieves almost a 60% pass rate after ten
-iterations. However, we also observed that iterative design does not help in all cases. For example,
-  in Analog IC design tasks, models still fail to meet the requirements even after ten iterations.</p>
+              <p>
+                To emulate the workflow of human engineers, we implement an <strong>iterative design protocol</strong> that allows LLMs to refine their solutions based on feedback from previous attempts. The LLM is provided with its previous design output along with corresponding evaluation results—including scores, performance metrics, and diagnostic logs—and is then prompted to generate an improved design in the subsequent iteration.
+              </p>
+              <p>
+                As shown in the figure below, model performance consistently improves with additional iterations. Notably, <strong>o3 achieves nearly a 60% pass rate after ten iterations</strong>, demonstrating the effectiveness of iterative refinement. However, we also observe that iterative design does not help in all cases—for example, in Analog IC design tasks, models still fail to meet requirements even after multiple iterations.
+              </p>
             <div class="content has-text-centered">
-              <img src="static/images/iter_design.png" alt="error distribution" width="45%">
-              <p> Average pass rate of GPT-4o, o1, o3, and o4-mini with the iterative design setup.</p>
+              <img src="static/images/iter_design.png" alt="Iterative design performance improvement" width="60%">
+              <p><em>Average pass rate of GPT-4o, o1, o3, and o4-mini with the iterative design setup.</em></p>
             </div>
           </div>
         </div>
@@ -498,12 +502,15 @@ iterations. However, we also observed that iterative design does not help in all
             <h2 class="title is-3">Error Analysis</h2>
             <div class="content has-text-justified">
               <p>
-                We analyzed o4-mini’s responses to 70 tasks from ENGDESIGN in which the model failed evaluation, and manually annotated each failure with corresponding error types. Given the complexity of engineering design tasks, many responses exhibited multiple failure modes; we therefore allowed multi-label assignments per task. In total, 111 distinct errors were identified. The distribution of these errors is illustrated in Figure. More analysis is included in the Appendix.
+                To understand the failure modes of LLMs on engineering design tasks, we conducted a comprehensive <strong>error analysis</strong> of o4-mini's responses to 70 failed tasks. Given the complexity of engineering design problems, many responses exhibited multiple failure modes, leading us to allow multi-label assignments per task.
+              </p>
+              <p>
+                Our analysis identified <strong>111 distinct error types</strong> across the failed responses. The distribution of these errors is illustrated in the figure below, providing insights into the most common challenges that LLMs face when tackling engineering design problems.
               </p>
             </div>
             <div class="content has-text-centered">
-              <img src="static/images/error_analysis.png" alt="error distribution" width="45%">
-              <p> Error distribution of 111 annotated error types for o4-mini on EngDesign.</p>
+              <img src="static/images/error_analysis.png" alt="Error type distribution analysis" width="60%">
+              <p><em>Distribution of 111 annotated error types for o4-mini on EngDesign tasks.</em></p>
             </div>
           </div>
         </div>
